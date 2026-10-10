@@ -30,6 +30,11 @@ public class NhanVienController extends HttpServlet {
             this.deleteNhanVien(request,response);
         }
     }
+//show
+    private void showNhanVien(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("list",nhanVienService.getAll());
+        request.getRequestDispatcher("/nhanvien.jsp").forward(request,response);
+    }
 
     private void deleteNhanVien(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         Integer id =Integer.valueOf(request.getParameter("id"));
@@ -37,10 +42,7 @@ public class NhanVienController extends HttpServlet {
         response.sendRedirect("/admin/nhan-vien");
     }
 
-    private void showNhanVien(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("list",nhanVienService.getAll());
-        request.getRequestDispatcher("/index.jsp").forward(request,response);
-    }
+
 
     @SneakyThrows
     @Override
@@ -48,7 +50,7 @@ public class NhanVienController extends HttpServlet {
         String uri = req.getRequestURI();
         if(uri.contains("/admin/nhan-vien/add")){
             this.addNhanVien(req,resp);
-        }else (uri.contains("/admin/nhan-vien/update")){
+        }else if(uri.contains("/admin/nhan-vien/update")){
             this.updateNhanVien(req,resp);
         }
     }
