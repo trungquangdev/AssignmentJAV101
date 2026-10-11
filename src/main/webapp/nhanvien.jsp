@@ -20,18 +20,16 @@
 </form>
 
 
-<form action="${pageContext.request.contextPath}/admin/nhan-vien/update"
-      method="post">
-
+<form action="${pageContext.request.contextPath}/admin/nhan-vien/update" method="post">
     <!-- ID dùng để Hibernate biết cần update bản ghi nào -->
-    <input type="hidden" name="id" value="${nv.id}">
-    <input type="text" name="ma" value="${nv.ma}" placeholder="Ma">
-    <input type="text" name="ten" value="${nv.ten}" placeholder="Ten">
-    <input type="email" name="email" value="${nv.email}" placeholder="Email">
-    <input type="text" name="sdt" value="${nv.sdt}" placeholder="SDT">
-    <input type="password" name="matKhau" value="${nv.matKhau}" placeholder="Mat khau">
-    <input type="text" name="chucVu" value="${nv.chucVu}" placeholder="Chuc vu">
-    <input type="number" name="trangThai" value="${nv.trangThai}" placeholder="Trang thai">
+    <input type="hidden" name="id" value="${nvEdit.id}">
+    <input type="text" name="ma" value="${nvEdit.ma}" placeholder="Ma">
+    <input type="text" name="ten" value="${nvEdit.ten}" placeholder="Ten">
+    <input type="email" name="email" value="${nvEdit.email}" placeholder="Email">
+    <input type="text" name="sdt" value="${nvEdit.sdt}" placeholder="SDT">
+    <input type="password" name="matKhau" value="${nvEdit.matKhau}" placeholder="Mat khau">
+    <input type="text" name="chucVu" value="${nvEdit.chucVu}" placeholder="Chuc vu">
+    <input type="number" name="trangThai" value="${nvEdit.trangThai}" placeholder="Trang thai">
     <button type="submit">Cập nhật</button>
 
 </form>
