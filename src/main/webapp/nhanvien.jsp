@@ -15,7 +15,7 @@
     <input type="password" name="matKhau" placeholder="Mật khẩu">
     <input type="text" name="chucVu" placeholder="Chức vụ">
     <input type="number" name="trangThai" placeholder="Trạng thái">
-g
+
     <button type="submit" onclick="return confirm('Thêm thành công')">Thêm</button>
 </form>
 
@@ -25,27 +25,13 @@ g
 
     <!-- ID dùng để Hibernate biết cần update bản ghi nào -->
     <input type="hidden" name="id" value="${nv.id}">
-
-    <input type="text"
-           name="ma"
-           value="${nv.ma}">
-
-    <input type="text"
-           name="ten"
-           value="${nv.ten}">
-
-    <input type="email"
-           name="email"
-           value="${nv.email}">
-
-    <input type="text"
-           name="sdt"
-           value="${nv.sdt}">
-
-    <input type="password"
-           name="matKhau"
-           value="${nv.matKhau}">
-
+    <input type="text" name="ma" value="${nv.ma}" placeholder="Ma">
+    <input type="text" name="ten" value="${nv.ten}" placeholder="Ten">
+    <input type="email" name="email" value="${nv.email}" placeholder="Email">
+    <input type="text" name="sdt" value="${nv.sdt}" placeholder="SDT">
+    <input type="password" name="matKhau" value="${nv.matKhau}" placeholder="Mat khau">
+    <input type="text" name="chucVu" value="${nv.chucVu}" placeholder="Chuc vu">
+    <input type="number" name="trangThai" value="${nv.trangThai}" placeholder="Trang thai">
     <button type="submit">Cập nhật</button>
 
 </form>
@@ -86,6 +72,11 @@ g
                        onclick="return confirm('Bạn có chắc muốn xóa?')">
                         Xóa
                     </a>
+
+                    <button type="submit">
+                        <a href="/admin/nhan-vien/update?id=${nv.id}"></a>
+                        Cap Nhat
+                    </button>
 
                 </td>
             </tr>
