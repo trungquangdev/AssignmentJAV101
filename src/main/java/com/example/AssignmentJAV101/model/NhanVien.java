@@ -30,4 +30,10 @@ public class NhanVien {
     @Column(name = "TrangThai")
     private Integer trangThai;
 
+/*@ManyToOne
+* @JoinColumn(name="IdNhanVien") khóa ngoại trong bảng HoaDon
+* private NhanVien nhanVien;*/
+
+//    @OneToMany(mappedBy="nhanVien")
+//    private List<HoaDon>lisHoaDon;
 }

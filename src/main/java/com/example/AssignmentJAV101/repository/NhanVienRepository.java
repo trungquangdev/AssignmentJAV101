@@ -14,9 +14,17 @@ public class NhanVienRepository {
         }
     }
 
+//    public static void main(String[] args) {
+//        NhanVienRepository rp=new NhanVienRepository();
+//        List<NhanVien>list=rp.getAll();
+//        for(NhanVien nv: list){
+//            System.out.println(nv.getMa()+" "+nv.getTen());
+//        }
+//    }
+
     public NhanVien getOne(Integer id){
         try(Session session = Hibernate.getFactory().openSession()){
-            return session.find(NhanVien.class,id);
+           return session.find(NhanVien.class,id);
         }
     }
 

@@ -6,16 +6,17 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<form action="/admin/nhan-vien/add"
-      method="post">
+<form action="/admin/nhan-vien/add" method="post">
 
     <input type="text" name="ma" placeholder="Mã">
     <input type="text" name="ten" placeholder="Tên">
     <input type="email" name="email" placeholder="Email">
     <input type="text" name="sdt" placeholder="SĐT">
     <input type="password" name="matKhau" placeholder="Mật khẩu">
-
-    <button type="submit">Thêm</button>
+    <input type="text" name="chucVu" placeholder="Chức vụ">
+    <input type="number" name="trangThai" placeholder="Trạng thái">
+g
+    <button type="submit" onclick="return confirm('Thêm thành công')">Thêm</button>
 </form>
 
 
@@ -76,12 +77,12 @@
                 <td>${nv.trangThai}</td>
                 <td>
                     <!-- Sửa -->
-                    <a href="${pageContext.request.contextPath}/admin/nhan-vien/edit?id=${nv.id}">
+                    <a href="/admin/nhan-vien/edit?id=${nv.id}">
                         Sửa
                     </a>
 
                     <!-- Xóa -->
-                    <a href="${pageContext.request.contextPath}/admin/nhan-vien/delete?id=${nv.id}"
+                    <a href="/admin/nhan-vien/delete?id=${nv.id}"
                        onclick="return confirm('Bạn có chắc muốn xóa?')">
                         Xóa
                     </a>

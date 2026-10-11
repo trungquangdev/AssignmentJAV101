@@ -24,10 +24,10 @@ public class NhanVienController extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException,ServletException {
         String uri = request.getRequestURI();
-        if(uri.contains("/admin/nhan-vien")){
-            this.showNhanVien(request,response);
-        }else if(uri.contains("/admin/nhan-vien/delete")){
+        if(uri.contains("/admin/nhan-vien/delete")){
             this.deleteNhanVien(request,response);
+        }else if(uri.contains("/admin/nhan-vien")){
+            this.showNhanVien(request,response);
         }
     }
 //show
@@ -35,7 +35,7 @@ public class NhanVienController extends HttpServlet {
         request.setAttribute("list",nhanVienService.getAll());
         request.getRequestDispatcher("/nhanvien.jsp").forward(request,response);
     }
-
+//remove
     private void deleteNhanVien(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         Integer id =Integer.valueOf(request.getParameter("id"));
         nhanVienService.delete(id);
@@ -54,7 +54,7 @@ public class NhanVienController extends HttpServlet {
             this.updateNhanVien(req,resp);
         }
     }
-
+//edit
     private void updateNhanVien(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, InvocationTargetException, IllegalAccessException {
         NhanVien nv = new NhanVien();
         BeanUtils.populate(nv,req.getParameterMap());
