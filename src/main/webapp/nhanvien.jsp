@@ -71,11 +71,31 @@
                     Xóa
                 </a>
 
+                <a href="/admin/nhan-vien/detail?id=${nv.id}">Detail</a>
             </td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
 
+<%--// <a href="${pageContext.request.contextPath}/chi-tiet-san-pham/detail?id=${s.idCTSP}"> Detail </a>--%>
+<%--//viet trong action--%>
+
+<c:if test="${not empty detailNv}">
+    <hr>
+
+    <h3>Chi tiết sản phẩm</h3>
+
+    <p>ma: ${detailNv.id}</p>
+    <p>ten: ${detailNv.ten}</p>
+    <p>mail: ${detailNv.mail}</p>
+    <p>sdt: ${detailNv.sdt}</p>
+    <p>mat khau: ${detailNv.matKhau}</p>
+    <p>chuc vu: ${detailNv.chucVu}</p>
+
+    <a href="/admin/nhan-vien">
+        Đóng chi tiết
+    </a>
+</c:if>
 </body>
 </html>

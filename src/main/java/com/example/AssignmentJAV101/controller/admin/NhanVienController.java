@@ -16,7 +16,8 @@ import org.apache.commons.beanutils.BeanUtils;
         "/admin/nhan-vien/add",
         "/admin/nhan-vien/update",
         "/admin/nhan-vien/edit",
-        "/admin/nhan-vien/delete"
+        "/admin/nhan-vien/delete",
+        "/admin/nhan-vien/detail"
 }
 
 )
@@ -28,18 +29,40 @@ public class NhanVienController extends HttpServlet {
         if (uri.contains("/admin/nhan-vien/delete")) {
             this.deleteNhanVien(request, response);
         } else if (uri.contains("/admin/nhan-vien/edit")) {
-            this.editNhanVien(request,response);
+            this.editNhanVien(request, response);
+        } else if (uri.contains("/admin/nhan-vien/detail")) {
+            this.detailNhanVien(request, response);
         } else if (uri.contains("/admin/nhan-vien")) {
             this.showNhanVien(request, response);
         }
     }
-//edit
+
+    private void detailNhanVien(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        // Lấy ID từ URL
+        Integer id = Integer.valueOf(request.getParameter("id"));
+        // Tìm chi tiết sản phẩm theo ID
+        NhanVien nv = nhanVienService.getOne(id);
+        // Kiểm tra sản phẩm có tồn tại không
+        if (nv == null) {
+            response.sendError(HttpServletResponse.SC_NOT_FOUND,
+                    "Không tìm thấy chi tiết sản phẩm");
+            return;
+        }
+        // Gửi dữ liệu sang JSP
+        request.setAttribute("detailNv", nv);
+        request.setAttribute("list", nhanVienService.getAll());
+        // Hiển thị trang chi tiếtindex
+        request.getRequestDispatcher("/nhanvien.jsp").forward(request, response);
+    }
+
+
+    //edit
     private void editNhanVien(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer id = Integer.valueOf(request.getParameter("id"));
         NhanVien nv = nhanVienService.getOne(id);
-        request.setAttribute("nvEdit",nv);
-        request.setAttribute("list",nhanVienService.getAll());
-        request.getRequestDispatcher("/nhanvien.jsp").forward(request,response);
+        request.setAttribute("nvEdit", nv);
+        request.setAttribute("list", nhanVienService.getAll());
+        request.getRequestDispatcher("/nhanvien.jsp").forward(request, response);
     }
 
     //show
