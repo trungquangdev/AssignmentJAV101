@@ -80,22 +80,25 @@
 
 <%--// <a href="${pageContext.request.contextPath}/chi-tiet-san-pham/detail?id=${s.idCTSP}"> Detail </a>--%>
 <%--//viet trong action--%>
-
+<div style="border: 1px solid black; padding: 10px">
 <c:if test="${not empty detailNv}">
     <hr>
 
     <h3>Chi tiết sản phẩm</h3>
 
-    <p>ma: ${detailNv.id}</p>
+    <p>ma: ${detailNv.ma}</p>
     <p>ten: ${detailNv.ten}</p>
-    <p>mail: ${detailNv.mail}</p>
+    <p>mail: ${detailNv.email}</p>
     <p>sdt: ${detailNv.sdt}</p>
     <p>mat khau: ${detailNv.matKhau}</p>
+
     <p>chuc vu: ${detailNv.chucVu}</p>
+    <p>trang thai: ${detailNv.trangThai}</p>
 
     <a href="/admin/nhan-vien">
         Đóng chi tiết
     </a>
 </c:if>
+</div>
 </body>
 </html>
