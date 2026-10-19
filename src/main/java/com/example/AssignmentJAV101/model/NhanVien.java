@@ -17,7 +17,7 @@ public class NhanVien {
     private Integer id;
     @Column(name="Ma")
     private String ma;
-    @Column(name = "Ten")
+    @Column(name = "Ten",columnDefinition = "nvarchar(100)")
     private String ten;
     @Column(name = "Email")
     private String email;
@@ -25,7 +25,7 @@ public class NhanVien {
     private String sdt;
     @Column(name = "MatKhau")
     private String matKhau;
-    @Column(name = "ChucVu")
+    @Column(name = "ChucVu",columnDefinition = "nvarchar(50)")
     private String chucVu;
     @Column(name = "TrangThai")
     private Integer trangThai;

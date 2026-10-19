@@ -19,6 +19,6 @@ public class MauSac {
     @Column(name = "Ma")
     private String ma;
 
-    @Column(name = "TenMau")
+    @Column(name = "TenMau",columnDefinition = "nvarchar(100)")
     private String tenMau;
 }

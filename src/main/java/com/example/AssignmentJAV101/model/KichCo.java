@@ -19,7 +19,7 @@ public class KichCo {
     @Column(name = "Ma")
     private String ma;
 
-    @Column(name = "TenSize")
+    @Column(name = "TenSize",columnDefinition = "nvarchar(100)")
     private String tenSize;
 
 }

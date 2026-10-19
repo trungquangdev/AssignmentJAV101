@@ -2,6 +2,9 @@ package com.example.AssignmentJAV101.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Nationalized;
+
+import java.lang.annotation.Native;
 
 @Entity
 @Table(name = "SanPham")
@@ -20,9 +23,11 @@ public class SanPham {
     private String ma;
 
     @Column(name = "TenSanPham")
+    @Nationalized
     private String tenSanPham;
 
     @Column(name = "MoTa")
+    @Nationalized
     private String moTa;
 
     @Column(name = "TrangThai")

@@ -22,6 +22,9 @@ public class Hibernate {
         configuration.addAnnotatedClass(KichCo.class);
         configuration.addAnnotatedClass(DotGiamGia.class);
         configuration.addAnnotatedClass(PhieuGiamGia.class);
+        // Hai entity bổ sung để phục vụ quản lý hóa đơn.
+        configuration.addAnnotatedClass(HoaDon.class);
+        configuration.addAnnotatedClass(HoaDonChiTiet.class);
         Properties properties = new Properties();
         properties.put(
                 Environment.DIALECT,
@@ -41,7 +44,13 @@ public class Hibernate {
         properties.put(Environment.USER, "sa");
         properties.put(Environment.PASS, "123");
         properties.put(Environment.SHOW_SQL, "true");
+        properties.put(Environment.FORMAT_SQL, "true");
+
+        // Chỉ kết nối tới schema hiện có, không tự sửa cấu trúc bảng.
+        properties.put(Environment.HBM2DDL_AUTO, "validate");
+
         configuration.setProperties(properties);
+
         ServiceRegistry serviceRegistry =
                 new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties())
